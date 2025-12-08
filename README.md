@@ -35,6 +35,7 @@ Icon(Ionicons.add_sharp)
 2. Run `make ttf` to generate the TTF font file.
 3. Run `make gen` to generate the Dart code.
 4. Update the minor version number in `pubspec.yaml`.
+5. Update `CHANGELOG.md`.
 
 ### Adding custom icons
 
@@ -46,3 +47,10 @@ Custom icons are stored in `src/extra_icons/kmbal`. To add a new custom icon:
 2. Run `make ttf` to generate the TTF font file.
 3. Run `make gen` to generate the Dart code.
 4. Update the minor version number in `pubspec.yaml`.
+5. Update `CHANGELOG.md`.
+
+### Testing
+
+1. `cd ./example`
+2. `make build`
+3. `make serve`
