@@ -20,6 +20,29 @@ Icon(Ionicons.add_outline)
 Icon(Ionicons.add_sharp)
 ```
 
-<!-- ## Example
+## Contributing
 
-https://ionicons.ez-connect.net/#/ -->
+### Prerequisites
+
+1. Install `make`
+2. Install [`nvm`](https://github.com/nvm-sh/nvm)
+3. Use `nvm` to install the version of Node in `.nvmrc`
+4. Install Dart and Flutter
+
+### Updating to a new version of Ionicons
+
+1. In `Makefile`, update `IONICON_VERSION` to the version of Ionicons you want to update to (available versions can be found [here](Visit https://github.com/ionic-team/ionicons/releases)).
+2. Run `make ttf` to generate the TTF font file.
+3. Run `make gen` to generate the Dart code.
+4. Update the minor version number in `pubspec.yaml`.
+
+### Adding custom icons
+
+Custom icons are stored in `src/extra_icons/kmbal`. To add a new custom icon:
+
+1. Copy the icon SVG to `src/extra_icons/kmbal`
+   1. It must be called `kmbal-<name>.svg` where `<name>` is the kebab-case name of the icon.
+   2. The SVG must have a `viewBox` of `0 0 512 512` (see `src/extra_icons/kmbal/kmbal-bank.svg` as an example).
+2. Run `make ttf` to generate the TTF font file.
+3. Run `make gen` to generate the Dart code.
+4. Update the minor version number in `pubspec.yaml`.
