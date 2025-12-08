@@ -1,3 +1,9 @@
+## 1.1.0
+
+### Changed
+
+- Added `kmbal_bank` custom icon
+
 ## 1.0.0
 
 ### Changed
