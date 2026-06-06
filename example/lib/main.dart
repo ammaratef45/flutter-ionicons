@@ -51,7 +51,7 @@ class MyHomePage extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: _onPressedGitHub,
-              icon: const Icon(Ionicons.logo_github),
+              icon: Icon(Ionicons.logo_github.iconData),
             ),
             TextButton(
               onPressed: _onPressedPub,
@@ -68,11 +68,11 @@ class MyHomePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: TextField(
                 autofocus: true,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   hintText: 'Search icons',
                   prefixIcon: Padding(
-                    padding: EdgeInsets.only(left: 32, right: 16),
-                    child: Icon(Ionicons.search_outline),
+                    padding: const EdgeInsets.only(left: 32, right: 16),
+                    child: Icon(Ionicons.search_outline.iconData),
                   ),
                 ),
                 onChanged: _onTextChanged,
@@ -111,12 +111,11 @@ class MyHomePage extends StatelessWidget {
     final items = value.isEmpty
         ? ioniconsMapping.entries.toList()
         : ioniconsMapping.entries
-              .where((e) => e.key.contains(value.toLowerCase()))
-              .toList();
+            .where((e) => e.key.contains(value.toLowerCase()))
+            .toList();
 
-    _outlineItems.value = items
-        .where((e) => e.key.endsWith('-outline'))
-        .toList();
+    _outlineItems.value =
+        items.where((e) => e.key.endsWith('-outline')).toList();
     _filledItems.value = items
         .where((e) => !(e.key.endsWith('-outline') || e.key.endsWith('-sharp')))
         .toList();
@@ -153,7 +152,11 @@ class _ItemList extends StatelessWidget {
         final item = items[index];
         return Column(
           children: [
-            Icon(IoniconsData(int.parse(item.value)), size: 64),
+            Icon(
+                IoniconsData(IconData(int.parse(item.value),
+                        fontFamily: 'Ionicons', fontPackage: 'kmbal_ionicons'))
+                    .iconData,
+                size: 64),
             const SizedBox(height: 8),
             Text(
               item.key,
